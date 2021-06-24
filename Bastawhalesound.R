@@ -28,3 +28,5 @@ datosJ <- DataCheck(datosJ, studyStart = 1999,
 
 multiout <- multibasta(object = datosJ, studyStart = 1999, studyEnd = 2018, model = "LO",
                        shape = "simple", niter = 50000, burnin = 5001 , thinning = 50, lifeTable = TRUE, nsim = 8)
+print(multiout)  
+
