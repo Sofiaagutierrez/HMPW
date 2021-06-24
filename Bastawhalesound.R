@@ -11,8 +11,6 @@ datosJ <- read.csv("~/Desktop/bastaformat.csv", header = TRUE)
 View(datosJ)
 head(censusMat) #para ver las primeras 5 filas  
 
-
-length(datosJ) #data frame length is 26
  
 #if I run the data check before running the analysisI get the following error after running the analysis --> Error in object[, 1] : incorrect number of dimensions
 
