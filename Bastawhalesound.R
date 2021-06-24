@@ -12,21 +12,21 @@ View(datosJ)
 head(censusMat) #para ver las primeras 5 filas  
 
 
-datosJ <- as.data.frame(datosJ,
-                       row.names = NULL, optional = FALSE,
-                        make.names = TRUE,
-                        stringsAsFactors = default.stringsAsFactors())
-
 length(datosJ) #data frame length is 26
-
+ 
+#if I run the data check before running the analysisI get the following error after running the analysis --> Error in object[, 1] : incorrect number of dimensions
 
 datosJ <- DataCheck(datosJ, studyStart = 1999,
                             studyEnd = 2018,   autofix = rep(1, 7),
                             silent = FALSE)
 
+#by running the analysis without running the data check code before, I get the following error : 
 
-#analisis 
+#Error in setDefaultClusterOptions(type = .sfOption$type) : could not find function "setDefaultClusterOptions"
 
+# plus the DIC's aren't calculated
 
-out <- basta(object = datosJ, studyStart = 1999, studyEnd = 2018, models = c("LO"), 
-             shape = "Makeham")
+#analysis
+
+multiout <- multibasta(object = datosJ, studyStart = 1999, studyEnd = 2018, model = "LO",
+                       shape = "simple", niter = 50000, burnin = 5001 , thinning = 50, lifeTable = TRUE, nsim = 8)
